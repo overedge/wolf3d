@@ -2,10 +2,12 @@
 
 int		main(void)
 {
-	void	*mlx;
-	void	*win;
+	t_env	e;
+	int		fd;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, W_WIDTH, W_HEIGHT, "wold3d");
-	mlx_loop(mlx);
+	ft_bzero(&e, sizeof(t_env));
+	if ((fd = open("map.txt", O_RDWR)) == -1)
+		ft_exit("Map: Open");
+	parse_map(&e, fd);
+	close(fd);
 }

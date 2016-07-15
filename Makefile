@@ -6,7 +6,7 @@ OBJS = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 LIBPATH = libft
 LIB = $(LIBPATH)/libft.a
 LDFLAGS = -L libft -lft -L mlx -lmlx
-VPATH = srcs:srcs/base
+VPATH = srcs:srcs/base:srcs/parsing
 
 ifdef FLAGS
 	ifeq ($(FLAGS), no)
@@ -19,7 +19,8 @@ else
 	CFLAGS = -Wall -Wextra -Werror
 endif
 
-SRC =  test.c \
+SRC =  tools.c \
+	parse_map.c \
 
 MAIN = srcs/main.c
 
